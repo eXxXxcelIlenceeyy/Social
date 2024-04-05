@@ -92,6 +92,7 @@ session_start();
         </ul>
     </section>
     <script src="../js/profile.js" defer></script>
+    <script src="../js/picture.js" defer></script>
 </body>
 
 </html>

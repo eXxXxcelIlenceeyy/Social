@@ -35,11 +35,14 @@ document.addEventListener("DOMContentLoaded", async function () {
                 profilePicture.src = response.split("|")[1];
             }
             location.reload(); // Перезагрузка страницы 
-        } catch (error) { console.error(error.message); }
+        } catch (error) {
+            console.error(error.message);
+        }
     });
     // Обработчик события клика на кнопку "Удалить картинку" 
     deletePictureButton.addEventListener("click", async function () {
-        try { // Удаление профильной картинки на сервере и обновление ее на странице
+        try {
+            // Удаление профильной картинки на сервере и обновление ее на странице
             const response = await deleteProfilePicture();
             if (response.startsWith("success")) {
                 profilePicture.src = "avatars/placeholder.png"; const updatedProfilePicturePath = await getProfilePicture();
@@ -84,7 +87,8 @@ document.addEventListener("DOMContentLoaded", async function () {
         });
     }
     // Получаем текущий путь к профильной картинке и устанавливаем его в качестве источника изображения 
-    const profilePicturePath = await getProfilePicture(); if (profilePicturePath !== "null") {
+    const profilePicturePath = await getProfilePicture();
+    if (profilePicturePath !== "null") {
         profilePicture.src = profilePicturePath;
     } else {
         profilePicture.src = "avatars/placeholder.png";
