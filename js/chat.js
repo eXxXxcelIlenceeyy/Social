@@ -50,6 +50,59 @@ function getUsers() {
             });
         });
 }
+
+// Функция для загрузки сообщений пользователя
+function loadMessages(receiverUserId) {
+    const chatMessages = document.getElementById('chat-messages');
+    chatMessages.innerHTML = '';
+    // Отправляем AJAX-запрос на сервер для получения сообщений
+    fetch('getMessages.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded', },
+        body: `receiver_id=${receiverUserId}`, // Отправляем ID получателя
+    })
+        .then(response => response.text())
+        .then(messagesText => {
+            // Разбиваем текст на строки и отображаем каждую строку как сообщение
+            const messagesArray = messagesText.split('\n');
+            for (const messageText of messagesArray) {
+                const messageElement = document.createElement('div');
+                messageElement.textContent = messageText;
+                chatMessages.appendChild(messageElement);
+            }
+        })
+        .catch(error => {
+            console.error('Error loading messages:', error);
+        });
+}
+
+// Функция для отправки сообщения
+function sendMessage() {
+    const messageInput = document.getElementById('message');
+    // Проверяем, выбран ли получатель сообщения
+    if (!selectedUserId) {
+        alert('Для начала переписки выберите пользователя из списка.');
+        return;
+    }
+    const messageText = messageInput.value;
+    // Отправляем AJAX-запрос на сервер для отправки сообщения
+    fetch('sendMessage.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded', },
+        body: `receiver_id=${selectedUserId}&message=${encodeURIComponent(messageText)}`,
+    })
+        .then(response => response.text())
+        .then(responseText => {
+            console.log('Response from sendMessage.php:', responseText);
+            loadMessages(selectedUserId);
+        })
+        .catch(error => {
+            console.error('Error sending message:', error);
+        });
+    // Очищаем поле ввода сообщения после отправки
+    messageInput.value = '';
+}
+
 // При загрузке страницы выполняем функцию для получения списка пользователей
 document.addEventListener('DOMContentLoaded', () => {
     getUsers();
