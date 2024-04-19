@@ -8,7 +8,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo json_encode(["status" => "error", "message" => "Error: User not authenticated"]);
         exit;
     }
-    $receiverId = $_POST['receiver_id'];
+    if (($_SESSION['admin']) == 1) {
+        $senderId = 0;
+        $receiverId = $_POST['receiver_id'];
+    } else {
+        $receiverId = 0;
+    }
     $messageText = $_POST['message'];
     // Используем параметризованный запрос, чтобы избежать SQL-инъекций
     $sql = "INSERT INTO messages (sender_id, receiver_id, message_text) VALUES (?, ?, ?)";

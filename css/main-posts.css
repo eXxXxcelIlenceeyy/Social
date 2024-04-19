@@ -1,0 +1,164 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #353746;
+    color: #eeeeec;
+    animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Стили для header */
+header {
+    background-color: #464c5e;
+    padding: 20px;
+    text-align: center;
+    height: 90px;
+    /* Явно заданная высота */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+header h1 {
+    text-align: center;
+    margin: 0;
+    color: #FFC000;
+    font-size: 56px;
+    -webkit-text-stroke: 2px #FFC000;
+    /* Обводка текста */
+    -webkit-text-fill-color: transparent;
+    /* Заполнение текста прозрачным 
+    цветом */
+}
+
+/* Обновленные стили для кнопки Создать пост */
+.create-post-button {
+    width: 60%;
+    margin-top: 25px;
+    background-image: linear-gradient(45deg, #FFC000, #FF8C00);
+    border: none;
+    color: #353746;
+    text-align: center;
+    padding: 15px 30px;
+    /* Увеличенные отступы */
+    font-size: 18px;
+    /* Увеличенный размер шрифта */
+    font-weight: bold;
+    /* Жирное начертание */
+    border-radius: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    /* Изменено на block для лучшего центрирования */
+    margin-left: auto;
+    margin-right: auto;
+    /* Автоматические отступы для центрирования */
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.create-post-button:hover {
+    background-image: linear-gradient(45deg, #FF8C00, #FFC000);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+    /* Приподнимается вверх при наведении */
+}
+
+.create-post-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+button {
+    background-color: #FFC000;
+    border: none;
+    color: #353746;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ffd903;
+}
+
+/* Стили поста */
+.post {
+    display: flex;
+    align-items: flex-start;
+    background-color: #464c5e;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #eeeeec;
+}
+
+.post-img-container {
+    flex-shrink: 0;
+    /* не даем картинке сжиматься */
+    width: 120px;
+    /* фиксированный размер картинки */
+    height: 120px;
+    border-radius: 50%;
+    /* круглая форма */
+    overflow: hidden;
+    margin-right: 20px;
+    /* отступ между картинкой и текстом */
+}
+
+.post-img-container img {
+    width: 100%;
+    height: auto;
+}
+
+.post-content {
+    flex: 1;
+    /* контент занимает оставшееся пространство */
+}
+
+.post h2 {
+    margin-top: 0;
+    color: #FFC000;
+    font-size: 24px;
+}
+
+.post p {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Эффект при наведении на картинку поста */
+.post-img-container img:hover {
+    transform: scale(1.1);
+    /* Увеличиваем картинку */
+    transition: transform 0.3s ease-in-out;
+    /* Делаем переход плавным */
+    border-radius: 10%;
+    /* Небольшое изменение формы для наглядности */
+}
+
+/* Эффект при наведении на заголовок поста */
+.post h2:hover {
+    color: #ffd903;
+    /* Светлый тон основного цвета для выделения */
+    transition: color 0.3s ease-in-out;
+    /* Плавное изменение цвета */
+    text-decoration: underline;
+    /* Добавляем подчеркивание для наглядности */
+}

@@ -69,7 +69,7 @@ session_start();
         </p>
         <h3>Панель управления</h3>
         <button onclick="document.location='editer_profile.php'" id="edit-profile">Редактировать профиль</button>
-        <button id="admin-chat">Написать администратору</button>
+        <button onclick="document.location='http://localhost/Social/AdminChat/AdminChat.php'" id="admin-chat">Написать администратору</button>
         <!-- Кнопка обновления картинки -->
         <button id="update-picture">Обновить картинку</button>
         <!-- Кнопка удаления картинки -->

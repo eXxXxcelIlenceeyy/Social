@@ -17,7 +17,7 @@
         }
         ?>
         <!-- Конец PHP-кода -->
-        <li><a href="#">Новости</a></li>
+        <li><a href="http://localhost/Social/posts/posts.php">Новости</a></li>
         <li><a href="#">Игры</a></li>
     </ul>
 </nav>
