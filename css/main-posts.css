@@ -5,7 +5,7 @@ body {
     padding: 0;
     background-color: #353746;
     color: #eeeeec;
-    animation: fadeIn 0.8s ease-in-out forwards;
+    /* animation: fadeIn 0.8s ease-in-out forwards; */
 }
 
 @keyframes fadeIn {

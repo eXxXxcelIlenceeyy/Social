@@ -1,5 +1,12 @@
 <?php
 session_start();
+// Получение ID пользователя из сессии
+$user_id = $_SESSION['id'];
+ob_start(); // Начало буферизации вывода
+include("upload-posts.php");
+$output = ob_get_clean(); // Получение содержимого буфера и его очистка
+// Теперь переменная $output содержит всё, что было выведено скриптом upload-posts.php
+// И вы можете использовать эту переменную в нужном месте вашего HTML
 ?>
 
 <!DOCTYPE html>
@@ -80,6 +87,7 @@ session_start();
     </section>
     <section id="user-posts">
         <h2>Мои посты</h2>
+        <?php echo $output; ?>
         <!-- Здесь будут отображаться ранее созданные посты с их лайками и комментариями -->
         <ul id="posts-list">
             <!-- Пример поста -->
@@ -91,6 +99,22 @@ session_start();
             </li>
         </ul>
     </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Получаем все посты по классу
+            var posts = document.querySelectorAll('.post-block');
+            posts.forEach(function(post) {
+                // Добавляем обработчик события при наведении мыши
+                post.addEventListener('mouseenter', function() {
+                    this.style.backgroundColor = '#50576b'; // Светлее при наведении
+                });
+                // Добавляем обработчик события при уходе мыши
+                post.addEventListener('mouseleave', function() {
+                    this.style.backgroundColor = ''; // Возвращаем исходный цвет
+                });
+            });
+        });
+    </script>
     <script src="../js/profile.js" defer></script>
     <script src="../js/picture.js" defer></script>
 </body>
