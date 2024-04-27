@@ -126,3 +126,91 @@ button:hover {
     color: #FFC000;
     font-size: 16px;
 }
+
+/* --------------------------------------------------------------------- */
+
+.post-block {
+    background-color: #464c5e;
+    /* Темно-синий фон */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Сделаем тень немного глубже */
+    color: #eeeeec;
+    /* Светлый текст для контраста с темным фоном */
+    display: flex;
+    align-items: flex-start;
+    /* Выравнивание содержимого поста */
+}
+
+.post-image {
+    flex-shrink: 0;
+    /* Чтобы изображение не сжималось */
+    width: 150px;
+    /* Фиксированная ширина для изображений */
+    height: 150px;
+    /* Фиксированная высота для изображений */
+    margin-right: 20px;
+    /* Отступ справа */
+    overflow: hidden;
+    /* Обрезать изображение если оно выходит за рамки */
+    border-radius: 8px;
+    /* Скругление углов изображения */
+}
+
+.post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Обеспечивает покрытие всей области без искажения */
+}
+
+.post-content {
+    flex: 1;
+}
+
+.post-block h3 {
+    margin-top: 0;
+    color: #ffd903;
+    /* Ярко-желтый заголовок */
+}
+
+.post-block h3 a {
+    color: inherit;
+    /* Наследовать цвет от родителя */
+    text-decoration: none;
+}
+
+.post-content p {
+    color: #eeeeec;
+    /* Светлый текст для лучшего контраста */
+    margin: 10px 0;
+}
+
+.post-content p:last-child {
+    color: #eeeeec;
+    /* Светлый текст для лучшего контраста */
+    margin: 10px 0;
+    font-weight: bold;
+    font-style: italic;
+    /* Делаем текст курсивом */
+}
+
+/* Эффект при наведении на картинку поста */
+.post-image:hover {
+    transform: scale(1.1);
+    /* Увеличиваем картинку */
+    transition: transform 0.3s ease-in-out;
+    /* Делаем переход плавным */
+}
+
+/* Эффект при наведении на заголовок поста */
+.post-block h3:hover {
+    color: #ffd103;
+    /* Светлый тон основного цвета для выделения */
+    transition: color 0.3s ease-in-out;
+    /* Плавное изменение цвета */
+    text-decoration: underline;
+    /* Добавляем подчеркивание для наглядности */
+}

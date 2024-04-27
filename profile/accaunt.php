@@ -84,20 +84,20 @@ $output = ob_get_clean(); // Получение содержимого буфе�
         <button id="delete-picture">Удалить картинку</button>
 
         <input type="file" id="file-input" accept="image/*" style="display: none;">
+        <button onclick="document.location='http://localhost/Social/posts/createpost.php'" id="admin-chat">Создать пост</button>
+        <?php
+        // Проверяем, является ли пользователь администратором
+        if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
+            echo '<button onclick="document.location=\'http://localhost/Social/AdminTools/allusers.php\'">Все пользователи</button>';
+            echo '<button onclick="document.location=\'http://localhost/Social/AdminTools/allposts.php\'">Все посты</button>';
+            echo '<button onclick="document.location=\'http://localhost/Social/AdminTools/allcomments.php\'">Все комментарии</button>';
+        }
+        ?>
     </section>
     <section id="user-posts">
         <h2>Мои посты</h2>
         <?php echo $output; ?>
         <!-- Здесь будут отображаться ранее созданные посты с их лайками и комментариями -->
-        <ul id="posts-list">
-            <!-- Пример поста -->
-            <li>
-                <p>Текст поста</p>
-                <p>Комментарии:
-                    <span class="comments-count">5</span>
-                </p>
-            </li>
-        </ul>
     </section>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
