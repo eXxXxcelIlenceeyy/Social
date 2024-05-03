@@ -41,7 +41,7 @@ if (!$result) {
                     <td><?php echo $row['id']; ?></td>
                     <td><?php echo htmlspecialchars($row['content']); ?></td>
                     <!-- Изменен вывод: теперь показывается название поста -->
-                    <td><a href="http://localhost/final/posts/post.php?id=<?php echo $row['post_id']; ?>"><?php echo htmlspecialchars($row['post_title']); ?></a></td>
+                    <td><a href="http://localhost/Social/posts/post.php?id=<?php echo $row['post_id']; ?>"><?php echo htmlspecialchars($row['post_title']); ?></a></td>
                     <td><?php echo htmlspecialchars($row['author_name']); ?></td>
                     <td><?php echo $row['created_at']; ?></td>
                     <td><a href="delete_comment.php?id=<?php echo $row['id']; ?>">Удалить</a></td>

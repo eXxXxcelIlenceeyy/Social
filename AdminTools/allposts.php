@@ -40,10 +40,8 @@ if (!$result) {
                     <td><?php echo htmlspecialchars($row['us_name']); ?></td>
                     <td><?php echo $row['created_at']; ?></td>
                     <td>
-                        <a href="http://localhost/final/posts/post.php?id=<?php
-                                                                            echo $row['id']; ?>">Просмотреть</a> |
-                        <a href="delete_post.php?id=<?php echo $row['id'];
-                                                    ?>">Удалить</a>
+                        <a href="http://localhost/Social/posts/post.php?id=<?php echo $row['id']; ?>">Просмотреть</a> |
+                        <a href="delete_post.php?id=<?php echo $row['id']; ?>">Удалить</a>
                     </td>
                 </tr>
             <?php endwhile; ?>

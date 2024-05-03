@@ -21,7 +21,7 @@ if ($result_posts->num_rows > 0) {
                 htmlspecialchars($row['image_url']) . "' alt='Post Image'></div>";
         }
         echo "<div class='post-content'>";
-        echo "<h3><a href='http://localhost/final/posts/post.php?id=" . $row['id'] . "'>" . htmlspecialchars($row['title']) . "</a></h3>";
+        echo "<h3><a href='http://localhost/Social/posts/post.php?id=" . $row['id'] . "'>" . htmlspecialchars($row['title']) . "</a></h3>";
         echo "<p>" . nl2br(htmlspecialchars($row['content'])) . "</p>";
         echo "<p>Количество комментариев: " . $row['comments_count'] . "</p>";
         echo "</div>"; // Закрытие блока контента поста
