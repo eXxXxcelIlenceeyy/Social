@@ -1,6 +1,5 @@
 <div class="loader">
     <div class="dash one">
-
     </div>
     <div class="dash two"></div>
     <div class="dash three"></div>
