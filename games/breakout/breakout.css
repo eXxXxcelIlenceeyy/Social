@@ -1,0 +1,39 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Установка шрифта
+    */
+    margin: 0;
+    /* Убираем внешние отступы */
+    padding: 0;
+    /* Убираем внутренние отступы */
+    background-color: #353746;
+    /* Цвет фона */
+    color: #eeeeec;
+    /* Цвет текста */
+    display: flex;
+    /* Используем flexbox для центрирования */
+    flex-direction: column;
+    justify-content: center;
+    /* Выравниваем контент по центру по горизонтали */
+    align-items: center;
+    /* Выравниваем контент по центру по вертикали */
+    height: 100vh;
+    /* Занимаем всю высоту видимой области экрана */
+}
+
+h1 {
+    text-align: center;
+    /* Выравнивание текста по центру */
+    margin-bottom: 20px;
+    /* Внешний отступ снизу */
+    margin-top: 20px;
+    /* Внешний отступ сверху */
+    font-size: 56px;
+    /* Размер шрифта */
+    -webkit-text-stroke: 2px #FFC000;
+    -webkit-text-fill-color: transparent;
+}
+
+canvas {
+    border: 5px solid #FFC000;
+}

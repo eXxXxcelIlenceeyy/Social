@@ -17,6 +17,8 @@ let foodX;
 let foodY;
 //Переменная счётчика
 var score = 0;
+//Переменная для завершения игры
+var gameOver = false;
 
 
 //Функция для отрисовки поля на странице
@@ -79,6 +81,11 @@ function placeSnake() {
 }
 
 function update() {
+    //Если игра завершена, то вызываем функцию для перезапуска
+    if (gameOver) {
+        resetGame();
+    }
+
     //Задаём фон полю
     context.fillStyle = "black";
     //Так как работаем с ячейками, нужно задать диапазон закрашивания
@@ -89,8 +96,24 @@ function update() {
     context.fillRect(foodX, foodY, blockSize, blockSize);
     //поедание яблока (Если координаты головы и яблока совпадают)
     if (snakeX == foodX && snakeY == foodY) {
+        //Добавление ячейки в массив
+        snakeBody.push([foodX, foodY]);
+        //Увеличение счётчика
+        score += 1;
         placeFood();
     }
+    //Изменение координат ячеек змейки для движения их за головой
+    for (let i = snakeBody.length - 1; i > 0; i--) {
+        snakeBody[i] = snakeBody[i - 1];
+    }
+    //Если есть ячейки тела, то голова помещается на первое место в массиве
+    if (snakeBody.length) {
+        snakeBody[0] = [snakeX, snakeY];
+    }
+    //Отрисовка счётчика на поле
+    context.fillStyle = "lightblue";
+    context.font = "20px sans-serif";
+    context.fillText(score, 10, 25);
 
 
     //Задаём заливку змейке
@@ -99,4 +122,35 @@ function update() {
     snakeX += vX * blockSize;
     snakeY += vY * blockSize;
     context.fillRect(snakeX, snakeY, blockSize, blockSize);
+    //Задаём цвет ячейка змейки
+    for (let i = 0; i < snakeBody.length; i++) {
+        context.fillRect(snakeBody[i][0], snakeBody[i][1], blockSize, blockSize);
+    }
+
+    //Если змейка коснулась границ экрана
+    if (snakeX < 0 || snakeX > cols * blockSize - 25 || snakeY < 0 || snakeY >
+        rows * blockSize - 25) {
+        gameOver = true;
+        alert("Игра окончена! Ваш счёт: " + String(score) + "\nНажмите 'ОК' для перезапуска игры");
+    }
+    //Если змейка съела себя (Сравниваем координаты головы со всеми ячейками тела змейки)
+    for (let i = 0; i < snakeBody.length; i++) {
+        if (snakeX == snakeBody[i][0] && snakeY == snakeBody[i][1]) {
+            gameOver = true;
+            alert("Игра окончена! Ваш счёт: " + String(score) + "\nНажмите 'ОК' для перезапуска игры");
+        }
+    }
+}
+
+function resetGame() {
+    //Обнуление всех переменных и вызов функция для случайного появления змейки и яблока
+    gameOver = false;
+    placeSnake();
+    placeFood();
+    vX = 0;
+    vY = 0;
+    snakeBody = [];
+    score = 0;
+
+    location.reload(true);
 }
