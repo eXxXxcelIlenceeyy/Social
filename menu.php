@@ -19,5 +19,6 @@
         <!-- Конец PHP-кода -->
         <li><a href="http://localhost/Social/posts/posts.php">Новости</a></li>
         <li><a href="http://localhost/Social/games/games.php">Игры</a></li>
+        <li><a href="http://localhost/Social/video/all_videos.php">Видео</a></li>
     </ul>
 </nav>
