@@ -1,0 +1,141 @@
+/* Общие стили */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #464c5e;
+}
+
+h1 {
+    text-align: center;
+    font-size: 46px;
+    color: #FFC000;
+    padding-top: 20px;
+    margin-top: 0;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 2px #FFC000;
+}
+
+/* Контейнер для видео */
+.video-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #fff;
+    /* Белый фон для контейнера */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    /* Скругленные углы */
+}
+
+/* Заголовок и описание видео */
+.video-container h2 {
+    font-size: 28px;
+    /* Увеличенный размер шрифта для заголовка */
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.video-container p {
+    font-size: 18px;
+    /* Увеличенный размер шрифта для описания */
+    color: #34495e;
+    line-height: 1.6;
+    /* Увеличенный межстрочный интервал */
+    margin-bottom: 20px;
+}
+
+/* Стили для видео */
+.video {
+    width: 100%;
+    height: 400px;
+    /* Автоматическая высота видео */
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+    /* Скругленные углы для видео */
+    /* Тень для видео */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для встраиваемого видео */
+.embedded-video {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 соотношение сторон */
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+    max-width: 800px;
+    /* Фиксированный размер */
+    margin: 0 auto;
+    border-radius: 8px;
+    /* Скругленные углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Тень */
+}
+
+.embedded-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    /* Убраны рамки у iframe */
+}
+
+/* Дополнительные анимации */
+/* Анимация при наведении */
+.video-container:hover,
+.video:hover,
+.embedded-video:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Медиа запросы для адаптивного дизайна */
+@media (max-width: 768px) {
+    .video-container {
+        margin: 20px;
+        padding: 15px;
+    }
+
+    .embedded-video {
+        padding-bottom: 75%;
+        /* Более высокое соотношение для меньших экранов */
+    }
+
+    h1 {
+        padding-top: 10px;
+    }
+}
+
+.comment-form-container label,
+.comment-form-container button {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.comment-form-container textarea {
+    width: 97%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: vertical;
+}
+
+.comment-form-container button {
+    padding: 10px 20px;
+    background-color: #FFC000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.comment-form-container button:hover {
+    background-color: #FFD966;
+}
